@@ -9,7 +9,7 @@ nav.navbar.navbar-inverse
       a.navbar-brand(href='#') TO-DO Tasks
     #navbar.navbar-collapse.collapse
       ul.nav.navbar-nav
-        li.active
+        li( class=(title === 'TODO Tasks' ? 'active' : '') )
           a(href='/') Pending
-        li
+        li(class=(title === 'COMPLETED Tasks' ? 'active' : '') )
           a(href='/completed') Completed
