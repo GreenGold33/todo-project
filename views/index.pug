@@ -5,8 +5,8 @@ block content
     .jumbotron
       h1= title
       ul.list-group
-        each task in tasks
-          li.list-group-item= task.desc
+        each task,index in tasks
+          li.list-group-item(data-index=index)= task.desc
 
     form(action='/task', method='POST', role='form')
       legend Form title

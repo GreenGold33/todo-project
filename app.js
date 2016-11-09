@@ -29,8 +29,20 @@ app.post('/task', (req,res) => {
 	var newTask = req.body;
 	newTask.done = false;
 	tasks.push(newTask);
-
 	res.redirect('/');
 })
+
+// curl --request DELETE 'http://localhost:3000/task/2'
+app.delete('/task/:id', (req,res) => {
+	const id = +req.params.id;
+	tasks.splice(id,1)
+	res.sendStatus(200)
+})
+
+
+
+
+
+
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}...`) )
