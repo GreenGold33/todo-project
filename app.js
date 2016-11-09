@@ -23,9 +23,12 @@ app.get('/', (req,res) => {
 	res.render('index', { title, tasks } )
 })
 
+app.get('/tasks', (req,res) => {
+	res.json(tasks)
+})
+
 // curl --request POST 'http://localhost:3000/task' --data 'desc=My new task'
 app.post('/task', (req,res) => {
-
 	var newTask = req.body;
 	newTask.done = false;
 	tasks.push(newTask);
@@ -39,11 +42,5 @@ app.delete('/task/:id', (req,res) => {
 	console.log(tasks)
 	res.sendStatus(200)
 })
-
-
-
-
-
-
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}...`) )
