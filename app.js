@@ -36,6 +36,7 @@ app.post('/task', (req,res) => {
 app.delete('/task/:id', (req,res) => {
 	const id = +req.params.id;
 	tasks.splice(id,1)
+	console.log(tasks)
 	res.sendStatus(200)
 })
 
