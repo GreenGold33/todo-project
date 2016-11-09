@@ -30,7 +30,7 @@ app.post('/task', (req,res) => {
 	newTask.done = false;
 	tasks.push(newTask);
 
-	res.sendStatus(200)
+	res.redirect('/');
 })
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}...`) )
