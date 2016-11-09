@@ -1,8 +1,9 @@
-$('#tasks li').on('click', function(event) {
+$('#tasks li .delete').on('click', function(event) {
 
 	event.preventDefault();
-	const id = $(this).attr('data-index')
-	let $currentElem = $(this);
+	let $currentElem = $(this).parent();
+	const id = $currentElem.attr('data-index')
+
 	console.log(`${id} to be removed...`)
 
 	$.ajax({
@@ -13,5 +14,23 @@ $('#tasks li').on('click', function(event) {
 		$currentElem.remove();
 	})
 
-	/* Act on the event */
+});
+
+$('#tasks li .complete').on('click', function(event) {
+
+	event.preventDefault();
+	let $currentElem = $(this).parent();
+	const id = $currentElem.attr('data-index')
+
+	console.log(`${id} to be completed...`)
+
+	$.ajax({
+		url: '/task/' + id,
+		type: 'PUT',
+		data: { done : "true" }
+	})
+	.done(function() {
+		$currentElem.remove();
+	})
+
 });
