@@ -12,7 +12,7 @@ block content
             button.btn.btn-primary(type='submit') Submit
         .jumbotron
           ul#tasks.list-group
-            each task,index in pending
-              li.list-group-item(data-index=task.id)= task.desc
+            each task in pending
+              li.list-group-item(data-index=task._id)= task.desc
                 a(class="delete", href="#") delete
                 a(class="complete", href="#") complete
